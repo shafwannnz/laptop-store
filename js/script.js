@@ -283,7 +283,7 @@ function handleCheckoutSubmit(event) {
 
   const whatsappMessage = `Halo Zakk Store! 🛒\n\nSaya ingin melakukan pemesanan:\n\n${orderSummary}\n\n*Total: ${formatCurrency(total)}*\n\nData Pembeli:\nNama: ${name}\nEmail: ${email}\nNo. WhatsApp: ${phone}\nAlamat: ${address}\n\nTerima kasih!`
 
-  const phoneNumber = "62812345670" // Ganti dengan nomor WhatsApp Anda
+  const phoneNumber = "6287872429430" // Ganti dengan nomor WhatsApp Anda
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
   window.open(url, "_blank")
