@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakk Store Laptop - Toko Laptop Terpercaya</title>
+    
+    <!-- TailwindCSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide React Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <span class="font-bold text-xl text-gray-900">Zakk Store</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-blue-600 transition">Produk</a>
+                    <a href="#categories" class="text-gray-700 hover:text-blue-600 transition">Kategori</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">Tentang</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Kontak</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle md:hidden" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Added cart icon button -->
+                <div class="flex items-center gap-4">
+                    <button class="relative" onclick="toggleCart()" title="Keranjang Belanja">
+                        <svg class="w-6 h-6 text-gray-700 hover:text-blue-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z"></path>
+                        </svg>
+                        <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold hidden">0</span>
+                    </button>
+
+                    <!-- CTA Button -->
+                    <button class="btn-primary hidden md:flex" onclick="scrollToContact()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Hubungi Kami
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 py-2">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-blue-600 py-2">Produk</a>
+                <a href="#categories" class="text-gray-700 hover:text-blue-600 py-2">Kategori</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 py-2">Tentang</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 py-2">Kontak</a>
+                <button class="btn-primary w-full mt-4" onclick="scrollToContact()">Hubungi Kami</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Laptop Berkualitas untuk <span class="gradient-text">Produktivitas Maksimal</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Temukan koleksi laptop terlengkap dengan harga terbaik. Dari gaming hingga profesional, kami punya semuanya untuk kebutuhan Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary" onclick="scrollToProducts()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z"></path>
+                            </svg>
+                            Lihat Produk
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToContact()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Konsultasi Gratis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="fade-in" style="animation-delay: 0.2s">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl blur-3xl opacity-20"></div>
+                        <img src="assets/img/axio.png" alt="Laptop Premium" class="relative w-full rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Produk Unggulan</h2>
+                <p class="text-xl text-gray-600">Pilihan laptop terbaik dengan spesifikasi tinggi dan harga kompetitif</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="card-hover bg-white border border-gray-200 overflow-hidden fade-in">
+                    <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                        <img src="assets/img/pongo.jpg" alt="Gaming Laptop" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-15%</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Axio Pongo 725</h3>
+                        <p class="text-gray-600 text-sm mb-4">Intel Core i7-12650H</p>
+                        <p class="text-gray-600 text-sm mb-4">NVIDIA GeForce RTX 2050</p> 
+                        <p class="text-gray-600 text-sm mb-4">RAM 16GB DDR 4</p>
+                        <p class="text-gray-600 text-sm mb-4">SSD 512GB NVMe</p>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-600">(245 reviews)</span>
+                        </div>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-3xl font-bold text-gray-900">Rp 10.999.999</span>
+                            <span class="text-lg text-gray-500 line-through">Rp 15.299.000</span>
+                        </div>
+                        <button class="btn-primary w-full" onclick="addToCartProduct({id: 1, name: 'Gaming Laptop Pro', price: 12999000, image: '/placeholder.svg?height=300&width=300'})">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="card-hover bg-white border border-gray-200 overflow-hidden fade-in" style="animation-delay: 0.1s">
+                    <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                        <img src="/assets/img/hype amd.jpg" alt="Axio Hype AMD" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">Terbaru</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Business Laptop Ultra</h3>
+                        <p class="text-gray-600 text-sm mb-4">Intel i7 • 32GB RAM • 1TB SSD</p>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-600">(189 reviews)</span>
+                        </div>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-3xl font-bold text-gray-900">Rp 18.499.000</span>
+                            <span class="text-lg text-gray-500 line-through">Rp 19.999.000</span>
+                        </div>
+                        <button class="btn-primary w-full" onclick="addToCartProduct({id: 2, name: 'Business Laptop Ultra', price: 18499000, image: '/placeholder.svg?height=300&width=300'})">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card-hover bg-white border border-gray-200 overflow-hidden fade-in" style="animation-delay: 0.2s">
+                    <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                        <img src="/placeholder.svg?height=300&width=300" alt="Ultrabook" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">Populer</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Ultrabook Slim</h3>
+                        <p class="text-gray-600 text-sm mb-4">Intel i5 • 8GB RAM • 256GB SSD</p>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            </div>
+                            <span class="text-sm text-gray-600">(312 reviews)</span>
+                        </div>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-3xl font-bold text-gray-900">Rp 7.999.000</span>
+                            <span class="text-lg text-gray-500 line-through">Rp 8.999.000</span>
+                        </div>
+                        <button class="btn-primary w-full" onclick="addToCartProduct({id: 3, name: 'Ultrabook Slim', price: 7999000, image: '/placeholder.svg?height=300&width=300'})">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in" style="animation-delay: 0.3s">
+                <button class="btn-secondary" onclick="scrollToProducts()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                    Lihat Semua Produk
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Kategori Laptop</h2>
+                <p class="text-xl text-gray-600">Temukan laptop sesuai kebutuhan Anda</p>
+            </div>
+
+            <div class="feature-grid">
+                <!-- Category 1 -->
+                <div class="card-hover bg-white p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Gaming Laptop</h3>
+                    <p class="text-gray-600 mb-6">Performa tinggi untuk gaming dan rendering profesional</p>
+                    <button class="btn-primary" onclick="scrollToContact()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Jelajahi
+                    </button>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="card-hover bg-white p-8 text-center fade-in" style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Business Laptop</h3>
+                    <p class="text-gray-600 mb-6">Produktivitas maksimal untuk profesional modern</p>
+                    <button class="btn-primary" onclick="scrollToContact()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Jelajahi
+                    </button>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="card-hover bg-white p-8 text-center fade-in" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Budget Laptop</h3>
+                    <p class="text-gray-600 mb-6">Harga terjangkau dengan kualitas terpercaya</p>
+                    <button class="btn-primary" onclick="scrollToContact()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Jelajahi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Mengapa Pilih Zakk Store?</h2>
+                <p class="text-xl text-gray-600">Komitmen kami untuk kepuasan pelanggan</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Feature 1 -->
+                <div class="flex gap-6 fade-in">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Harga Terbaik</h3>
+                        <p class="text-gray-600">Kami menjamin harga paling kompetitif di pasaran dengan kualitas terjamin</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex gap-6 fade-in" style="animation-delay: 0.1s">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Garansi Resmi</h3>
+                        <p class="text-gray-600">Semua produk dilengkapi garansi resmi dari manufaktur</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex gap-6 fade-in" style="animation-delay: 0.2s">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Pengiriman Cepat</h3>
+                        <p class="text-gray-600">Pengiriman ke seluruh Indonesia dengan jaminan barang sampai dengan aman</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="flex gap-6 fade-in" style="animation-delay: 0.3s">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Layanan Purna Jual</h3>
+                        <p class="text-gray-600">Tim support profesional siap membantu Anda 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="about" class="bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Testimoni Pelanggan</h2>
+                <p class="text-xl text-gray-600">Kepuasan pelanggan adalah prioritas utama kami</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card card-hover fade-in">
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Laptop yang saya beli sangat memuaskan. Kualitas bagus, harga terjangkau, dan pengiriman cepat. Terima kasih Zakk Store!"</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full">
+                        <div class="text-left">
+                            <p class="font-bold">Budi Santoso</p>
+                            <p class="text-sm text-gray-600">Profesional IT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card card-hover fade-in" style="animation-delay: 0.1s">
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Pelayanan customer service Zakk Store luar biasa responsif. Semua pertanyaan saya dijawab dengan cepat dan profesional."</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full">
+                        <div class="text-left">
+                            <p class="font-bold">Siti Nurhaliza</p>
+                            <p class="text-sm text-gray-600">Content Creator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card card-hover fade-in" style="animation-delay: 0.2s">
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Gaming laptop yang saya beli benar-benar powerful! Bisa main game AAA dengan setting ultra tanpa lag. Recommended!"</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Customer" class="w-12 h-12 rounded-full">
+                        <div class="text-left">
+                            <p class="font-bold">Reza Pratama</p>
+                            <p class="text-sm text-gray-600">Gaming Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Hubungi Kami Sekarang</h2>
+                    <p class="text-xl mb-8 text-blue-100">Dapatkan konsultasi gratis dan penawaran spesial untuk pembelian hari ini</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Contact Info 1 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500">
+                                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-100">Email</p>
+                                <p class="text-lg font-semibold">info@zakkstore.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info 2 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500">
+                                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-100">Telepon</p>
+                                <p class="text-lg font-semibold">+62 812-3456-7890</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info 3 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500">
+                                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-100">Lokasi</p>
+                                <p class="text-lg font-semibold">Jl. Merdeka No. 123, Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <button class="btn-accent" onclick="openWhatsApp()">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.41 2.124 7.738L3.06 23.196l8.351-2.191a9.788 9.788 0 004.686 1.194h.005c5.396 0 9.747-4.363 9.747-9.798 0-2.611-.505-5.192-1.506-7.651-1.001-2.459-2.44-4.675-4.207-6.442-1.768-1.768-3.983-3.207-6.442-4.208-2.459-1.001-5.04-1.506-7.651-1.506z"/>
+                            </svg>
+                            Chat WhatsApp
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToProducts()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z"></path>
+                            </svg>
+                            Lihat Produk
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="fade-in" style="animation-delay: 0.2s">
+                    <form class="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-2xl" onsubmit="handleFormSubmit(event)">
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-white" required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" placeholder="Masukkan email Anda" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-white" required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Nomor WhatsApp</label>
+                            <input type="tel" placeholder="Masukkan nomor WhatsApp" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-white" required>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Pesan</label>
+                            <textarea placeholder="Tulis pesan Anda di sini..." rows="4" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-white" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-accent w-full">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Tentang Zakk Store</h3>
+                    <p class="text-sm">Toko laptop terpercaya dengan pengalaman lebih dari 10 tahun melayani pelanggan di seluruh Indonesia.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Menu</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#products" class="hover:text-white transition">Produk</a></li>
+                        <li><a href="#categories" class="hover:text-white transition">Kategori</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Dukungan</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-white transition">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7s1.1 5-5 7l-4 1s3 1.6 9 1.6c6 0 10.5-4 10.5-4s.75-8.75-11.25-14.5z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm">&copy; 2025 Zakk Store Laptop. Semua hak dilindungi.</p>
+                    <p class="text-sm mt-4 md:mt-0">Dibuat dengan <span class="text-red-500">❤</span> untuk pelanggan setia kami</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp" onclick="openWhatsApp()" title="Chat dengan kami di WhatsApp">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.41 2.124 7.738L3.06 23.196l8.351-2.191a9.788 9.788 0 004.686 1.194h.005c5.396 0 9.747-4.363 9.747-9.798 0-2.611-.505-5.192-1.506-7.651-1.001-2.459-2.44-4.675-4.207-6.442-1.768-1.768-3.983-3.207-6.442-4.208-2.459-1.001-5.04-1.506-7.651-1.506z"/>
+        </svg>
+    </div>
+
+    <!-- Added Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleCart()"></div>
+    
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+        <!-- Cart Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 flex justify-between items-center">
+            <h2 class="text-2xl font-bold">Keranjang Belanja</h2>
+            <button onclick="toggleCart()" class="text-2xl hover:opacity-80">×</button>
+        </div>
+
+        <!-- Cart Items -->
+        <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+            <p class="text-gray-500 text-center py-8">Keranjang Anda kosong</p>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="border-t border-gray-200 p-6 space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold">
+                <span>Total:</span>
+                <span id="cartTotal" class="text-blue-600">Rp 0</span>
+            </div>
+            <button class="btn-primary w-full" onclick="proceedToCheckout()">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                Checkout
+            </button>
+            <button class="btn-secondary w-full" onclick="toggleCart()">
+                Lanjut Belanja
+            </button>
+        </div>
+    </div>
+
+    <!-- Added Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto">
+            <!-- Checkout Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 flex justify-between items-center sticky top-0">
+                <h2 class="text-2xl font-bold">Checkout</h2>
+                <button onclick="closeCheckout()" class="text-2xl hover:opacity-80">×</button>
+            </div>
+
+            <!-- Checkout Content -->
+            <div class="p-6">
+                <!-- Order Summary -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-4">Ringkasan Pesanan</h3>
+                    <div id="checkoutItems" class="space-y-3 mb-4 pb-4 border-b border-gray-200">
+                        <!-- Items will be populated here -->
+                    </div>
+                    <div class="flex justify-between items-center text-lg font-bold">
+                        <span>Total:</span>
+                        <span id="checkoutTotal" class="text-blue-600">Rp 0</span>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama Anda" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" placeholder="Masukkan email Anda" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nomor WhatsApp</label>
+                        <input type="tel" placeholder="Masukkan nomor WhatsApp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Alamat Pengiriman</label>
+                        <textarea placeholder="Masukkan alamat lengkap" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button type="button" class="btn-secondary flex-1" onclick="closeCheckout()">Batal</button>
+                        <button type="submit" class="btn-primary flex-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.41 2.124 7.738L3.06 23.196l8.351-2.191a9.788 9.788 0 004.686 1.194h.005c5.396 0 9.747-4.363 9.747-9.798 0-2.611-.505-5.192-1.506-7.651-1.001-2.459-2.44-4.675-4.207-6.442-1.768-1.768-3.983-3.207-6.442-4.208-2.459-1.001-5.04-1.506-7.651-1.506z"/>
+                            </svg>
+                            Lanjut ke WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link ke file JavaScript eksternal -->
+    <script src="js/script.js"></script>
+</body>
+</html>
